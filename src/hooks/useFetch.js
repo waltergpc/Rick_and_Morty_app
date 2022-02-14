@@ -17,7 +17,7 @@ export const useFetch = (url, page) => {
       setData([...data.results])
       setLoading(false)
     } catch (error) {
-      setError(error.response)
+      setError('Something went wrong, please try again later')
     }
   }
 

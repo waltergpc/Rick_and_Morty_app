@@ -35,37 +35,55 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
   }
   return (
     <form onSubmit={handleSubmit}>
+      <h5>Search Characters</h5>
       <input
+        placeholder='Name'
         type='text'
         name='name'
         value={queryValues.name}
         onChange={handleChange}
       />
       <input
+        placeholder='Type'
         type='text'
         name='type'
         value={queryValues.type}
         onChange={handleChange}
       />
       <input
+        placeholder='Species'
         type='text'
         name='species'
         value={queryValues.species}
         onChange={handleChange}
       />
-      <select name='status' value={queryValues.status} onChange={handleChange}>
-        <option value='all'>All</option>
-        <option value='alive'>Alive</option>
-        <option value='dead'>Dead</option>
-        <option value='unknown'>Unknown</option>
-      </select>
-      <select name='gender' value={queryValues.gender} onChange={handleChange}>
-        <option value='all'>All</option>
-        <option value='male'>Male</option>
-        <option value='female'>Female</option>
-        <option value='genderless'>Genderless</option>
-        <option value='unknown'>Unknown</option>
-      </select>
+      <div>
+        <h6>Status</h6>
+        <select
+          name='status'
+          value={queryValues.status}
+          onChange={handleChange}
+        >
+          <option value='all'>All</option>
+          <option value='alive'>Alive</option>
+          <option value='dead'>Dead</option>
+          <option value='unknown'>Unknown</option>
+        </select>
+      </div>
+      <div>
+        <h6>Gender</h6>
+        <select
+          name='gender'
+          value={queryValues.gender}
+          onChange={handleChange}
+        >
+          <option value='all'>All</option>
+          <option value='male'>Male</option>
+          <option value='female'>Female</option>
+          <option value='genderless'>Genderless</option>
+          <option value='unknown'>Unknown</option>
+        </select>
+      </div>
       <button type='submit'>Search</button>
     </form>
   )

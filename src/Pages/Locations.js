@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Pagination from '../Components/Pagination'
-import SearchCharacters from '../Components/SearchCharacters'
+import SearchLocations from '../Components/SearchLocations'
 import { useFetch } from '../hooks/useFetch'
 
-const Characters = () => {
+const Locations = () => {
   const [queryUrl, setQueryUrl] = useState(
-    'https://rickandmortyapi.com/api/character/?'
+    'https://rickandmortyapi.com/api/location/?'
   )
   const [page, setPage] = useState(1)
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
@@ -13,21 +13,16 @@ const Characters = () => {
 
   const { loading, error, data, info } = useFetch(queryUrl, page)
 
-  console.log(data, info)
-
   if (loading) return <pre>...Loading</pre>
-  if (!info) return <pre>...Loading</pre>
+  if (!info || !data) return <pre>...Loading</pre>
 
+  console.log(data, info)
   return (
     <section>
       {error && <h4>{error}</h4>}
-      <SearchCharacters
-        setQueryUrl={setQueryUrl}
-        queryUrl={queryUrl}
-        setPage={setPage}
-      />
-      {data.map((character) => {
-        return <article key={character.id}>{character.name}</article>
+      <SearchLocations setQueryUrl={setQueryUrl} setPage={setPage} />
+      {data.map((location) => {
+        return <article key={location.id}>{location.name}</article>
       })}
       <Pagination
         count={info.count}
@@ -42,4 +37,4 @@ const Characters = () => {
   )
 }
 
-export default Characters
+export default Locations

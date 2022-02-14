@@ -93,8 +93,8 @@ const NavContainer = styled.nav`
         padding: 0.5rem;
         transition: all 0.2s linear;
         &:hover {
-          border-bottom: 2px solid rgb(16, 98, 110);
-          color: rgb(16, 98, 110);
+          border-bottom: 2px solid rgb(194, 233, 16);
+          color: rgb(194, 233, 16);
         }
       }
     }
