@@ -1,4 +1,7 @@
 import React, { useState } from 'react'
+import Gridview from '../Components/Gridview'
+import GridviewButtons from '../Components/GridviewButtons'
+import ListView from '../Components/ListView'
 import Pagination from '../Components/Pagination'
 import SearchCharacters from '../Components/SearchCharacters'
 import { useFetch } from '../hooks/useFetch'
@@ -8,6 +11,7 @@ const Characters = () => {
     'https://rickandmortyapi.com/api/character/?'
   )
   const [page, setPage] = useState(1)
+  const [gridView, setGridView] = useState(true)
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
 
@@ -26,9 +30,12 @@ const Characters = () => {
         queryUrl={queryUrl}
         setPage={setPage}
       />
-      {data.map((character) => {
-        return <article key={character.id}>{character.name}</article>
-      })}
+      <GridviewButtons setGridView={setGridView} />
+      {gridView ? (
+        <Gridview data={data} provider='characters' />
+      ) : (
+        <ListView data={data} provider='characters' />
+      )}
       <Pagination
         count={info.count}
         page={page}

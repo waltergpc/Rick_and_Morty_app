@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 
 export const useFetch = (url, page) => {
@@ -7,23 +7,27 @@ export const useFetch = (url, page) => {
   const [info, setInfo] = useState({})
   const [loading, setLoading] = useState(false)
 
-  const getData = async (queryUrl) => {
-    setLoading(true)
-    queryUrl = `${queryUrl}&page=${page}`
-    console.log(queryUrl)
-    try {
-      const { data } = await axios.get(queryUrl)
-      setInfo({ ...data.info })
-      setData([...data.results])
-      setLoading(false)
-    } catch (error) {
-      setError('Something went wrong, please try again later')
-    }
-  }
+  const getData = useCallback(
+    async (queryUrl) => {
+      console.log('hola')
+      setLoading(true)
+      queryUrl = `${queryUrl}&page=${page}`
+      console.log(queryUrl)
+      try {
+        const { data } = await axios.get(queryUrl)
+        setInfo({ ...data.info })
+        setData([...data.results])
+        setLoading(false)
+      } catch (error) {
+        setError('Something went wrong, please try again later')
+      }
+    },
+    [page]
+  )
 
   useEffect(() => {
     getData(url)
-  }, [url, page])
+  }, [url, page, getData])
 
   return { loading, error, data, info }
 }

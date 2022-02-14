@@ -188,6 +188,7 @@ p {
   border-radius: var(--radius);
   border-color: transparent;
 }
+
 .btn:hover {
   color: var(--clr-primary-1);
   background: var(--clr-primary-7);
