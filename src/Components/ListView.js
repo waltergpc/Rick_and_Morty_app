@@ -1,12 +1,13 @@
 import React from 'react'
 import CharacterList from './CharacterList'
 import styled from 'styled-components'
+import LocationsList from './LocationsList'
 
 const ListView = ({ provider, data }) => {
   if (provider === 'characters') {
     return (
       <Wrapper>
-        <div className='list-heading'>
+        <div className='characters-list-heading'>
           <span>Avatar</span>
           <span>Name</span>
           <span>Species</span>
@@ -15,6 +16,22 @@ const ListView = ({ provider, data }) => {
         <div className='list-body'>
           {data.map((character) => (
             <CharacterList key={character.id} character={character} />
+          ))}
+        </div>
+      </Wrapper>
+    )
+  }
+  if (provider === 'locations') {
+    return (
+      <Wrapper>
+        <div className='locations-list-heading'>
+          <span>Name</span>
+          <span>Type</span>
+          <span>Dimension</span>
+        </div>
+        <div className='list-body'>
+          {data.map((location) => (
+            <LocationsList key={location.id} location={location} />
           ))}
         </div>
       </Wrapper>
@@ -35,10 +52,22 @@ const Wrapper = styled.div`
   width: 85vw;
   margin: auto;
 
-  .list-heading {
+  .characters-list-heading {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid black;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgba(47, 47, 46, 0.9);
+    color: beige;
+  }
+
+  .locations-list-heading {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 1px solid black;
+    justify-items: center;
     border-radius: 1rem;
     padding: 0.5rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -57,7 +86,7 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 900px) {
-    .list-heading {
+    .characters-list-heading {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
     .mobile-hidden {
