@@ -19,7 +19,13 @@ export const useFetch = (url, page) => {
         setData([...data.results])
         setLoading(false)
       } catch (error) {
-        setError('Something went wrong, please try again later')
+        if (error.response.status === 404) {
+          setData([])
+          setInfo({})
+          setLoading(false)
+        } else {
+          setError('Something Wen wrong, please try again later')
+        }
       }
     },
     [page]

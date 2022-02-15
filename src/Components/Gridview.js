@@ -5,6 +5,7 @@ import styled from 'styled-components'
 
 const Gridview = ({ data, provider }) => {
   if (provider === 'characters') {
+    if (data.length < 1) return <h4>No Results matches</h4>
     return (
       <Wrapper>
         {data.map((character) => (
@@ -14,6 +15,7 @@ const Gridview = ({ data, provider }) => {
     )
   }
   if (provider === 'locations') {
+    if (data.length < 1) return <h4>No Results matches</h4>
     return (
       <Wrapper>
         {data.map((location) => (
@@ -29,6 +31,8 @@ export default Gridview
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  background-color: rgba(47, 47, 46, 0.4);
+  border-radius: 0.5rem;
   padding: 2rem;
   gap: 2rem;
   height: 55vh;

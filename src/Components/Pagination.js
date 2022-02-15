@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const Pagination = ({
   count,
@@ -30,7 +31,7 @@ const Pagination = ({
   }
 
   return (
-    <div className='page-numbers'>
+    <Wrapper>
       <button
         type='button'
         className='page-btn prev-btn'
@@ -67,8 +68,44 @@ const Pagination = ({
       >
         Next
       </button>
-    </div>
+    </Wrapper>
   )
 }
 
 export default Pagination
+
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  .page-btn {
+    padding: 0.3rem;
+    margin: 1rem 0;
+    cursor: pointer;
+    border: 2px;
+    background-color: #1c1a1a;
+    color: #fff;
+  }
+
+  .active {
+    background-color: #fff;
+    color: #000;
+    font-weight: bold;
+  }
+  /*--------------------- Prev Button CSS--------------------------- */
+  .prev-btn {
+    border-radius: 2rem 0 0 2rem;
+    padding-left: 0.5rem;
+  }
+
+  /*--------------------- Next Button CSS--------------------------- */
+  .nxt-btn {
+    border-radius: 0 2rem 2rem 0;
+    padding-right: 0.5rem;
+  }
+
+  .prev-btn:disabled,
+  .nxt-btn:disabled {
+    opacity: 0.7;
+  }
+`

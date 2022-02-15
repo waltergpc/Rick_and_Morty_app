@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { FaSearch } from 'react-icons/fa'
 
 const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
   const [queryValues, setQueryValues] = useState({
@@ -91,7 +92,7 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
         </select>
       </div>
       <button type='submit' className='search-btn'>
-        Search
+        <FaSearch />
       </button>
     </FormWrapper>
   )
@@ -120,6 +121,15 @@ const FormWrapper = styled.form`
 
   .search-input:focus {
     outline: none;
+  }
+
+  .search-btn {
+    padding: 0.5rem;
+    background-color: rgba(47, 47, 46, 0.9);
+    color: orange;
+    border-radius: 0.7rem;
+    border: none;
+    cursor: pointer;
   }
 
   @media (max-width: 900px) {
@@ -162,6 +172,10 @@ const FormWrapper = styled.form`
 
     .select-input {
       margin-left: 0.3rem;
+    }
+
+    .search-btn {
+      font-size: 1rem;
     }
   }
 `
