@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import styled from 'styled-components'
 
 const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
   const [queryValues, setQueryValues] = useState({
@@ -34,9 +35,10 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
     setPage(1)
   }
   return (
-    <form onSubmit={handleSubmit}>
-      <h5>Search Characters</h5>
+    <FormWrapper onSubmit={handleSubmit}>
+      <h5 className='search-title'>Search Characters</h5>
       <input
+        className='search-input'
         placeholder='Name'
         type='text'
         name='name'
@@ -44,6 +46,7 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
         onChange={handleChange}
       />
       <input
+        className='search-input'
         placeholder='Type'
         type='text'
         name='type'
@@ -51,18 +54,20 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
         onChange={handleChange}
       />
       <input
+        className='search-input'
         placeholder='Species'
         type='text'
         name='species'
         value={queryValues.species}
         onChange={handleChange}
       />
-      <div>
-        <h6>Status</h6>
+      <div className='select-div status'>
+        <h6 className='select-title'>Status</h6>
         <select
           name='status'
           value={queryValues.status}
           onChange={handleChange}
+          className='select-input'
         >
           <option value='all'>All</option>
           <option value='alive'>Alive</option>
@@ -70,12 +75,13 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
           <option value='unknown'>Unknown</option>
         </select>
       </div>
-      <div>
-        <h6>Gender</h6>
+      <div className='select-div gender'>
+        <h6 className='select-title'>Gender</h6>
         <select
           name='gender'
           value={queryValues.gender}
           onChange={handleChange}
+          className='select-input'
         >
           <option value='all'>All</option>
           <option value='male'>Male</option>
@@ -84,9 +90,78 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
           <option value='unknown'>Unknown</option>
         </select>
       </div>
-      <button type='submit'>Search</button>
-    </form>
+      <button type='submit' className='search-btn'>
+        Search
+      </button>
+    </FormWrapper>
   )
 }
 
 export default SearchCharacters
+
+const FormWrapper = styled.form`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 0.3rem;
+  background-color: rgba(59, 80, 0, 0.86);
+  color: beige;
+  padding: 1rem;
+
+  .search-title {
+    grid-column: 1 / 3;
+  }
+
+  .search-input {
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+  }
+
+  .search-input:focus {
+    outline: none;
+  }
+
+  @media (max-width: 900px) {
+    .search-input {
+      grid-column: 1 / 2;
+      width: 80%;
+    }
+    .select-title {
+      text-align: center;
+    }
+
+    .select-div {
+      grid-column: 2 / 3;
+    }
+    .search-btn {
+      grid-column: 2 / 3;
+    }
+    .status {
+      grid-row: 2 / 3;
+    }
+    .gender {
+      grid-row: 3 / 4;
+    }
+  }
+
+  @media (min-width: 900px) {
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+
+    .search-title {
+      grid-column: 1 / 7;
+    }
+
+    .select-div {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .select-input {
+      margin-left: 0.3rem;
+    }
+  }
+`

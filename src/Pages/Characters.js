@@ -5,6 +5,8 @@ import ListView from '../Components/ListView'
 import Pagination from '../Components/Pagination'
 import SearchCharacters from '../Components/SearchCharacters'
 import { useFetch } from '../hooks/useFetch'
+import styled from 'styled-components'
+import background1 from '../Images/background1.png'
 
 const Characters = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -23,14 +25,14 @@ const Characters = () => {
   if (!info) return <pre>...Loading</pre>
 
   return (
-    <section>
+    <Wrapper>
       {error && <h4>{error}</h4>}
       <SearchCharacters
         setQueryUrl={setQueryUrl}
         queryUrl={queryUrl}
         setPage={setPage}
       />
-      <GridviewButtons setGridView={setGridView} />
+      <GridviewButtons setGridView={setGridView} gridView={gridView} />
       {gridView ? (
         <Gridview data={data} provider='characters' />
       ) : (
@@ -45,8 +47,17 @@ const Characters = () => {
         setMaxPageNumberLimit={setMaxPageNumberLimit}
         setMinPageNumberLimit={setMinPageNumberLimit}
       />
-    </section>
+    </Wrapper>
   )
 }
 
 export default Characters
+
+const Wrapper = styled.section`
+  display: grid;
+  align-items: center;
+  background-image: url(${background1});
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+`
