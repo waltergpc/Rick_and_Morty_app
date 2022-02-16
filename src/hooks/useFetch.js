@@ -24,7 +24,7 @@ export const useFetch = (url, page) => {
           setInfo({})
           setLoading(false)
         } else {
-          setError('Something Wen wrong, please try again later')
+          setError('Something went wrong, please try again later')
         }
       }
     },

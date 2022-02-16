@@ -130,6 +130,7 @@ const FormWrapper = styled.form`
     border-radius: 0.7rem;
     border: none;
     cursor: pointer;
+    transition: var(--transition);
   }
 
   @media (max-width: 900px) {
@@ -176,6 +177,11 @@ const FormWrapper = styled.form`
 
     .search-btn {
       font-size: 1rem;
+    }
+
+    .search-btn:hover {
+      color: rgba(47, 47, 46, 0.9);
+      background-color: orange;
     }
   }
 `
