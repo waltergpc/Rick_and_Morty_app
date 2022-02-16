@@ -1,15 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const CharacterCard = ({ character }) => {
-  const { name, image, species, status } = character
+  const { id, name, image, species, status } = character
   return (
     <ArticleWrapper>
       <div className='avatar-div'>
         <img className='avatar' src={image} alt={name} />
       </div>
       <div className='info-div'>
-        <span className='card-text'>{name}</span>
+        <Link to={`/characters/${id}`} className='card-text'>
+          {name}
+        </Link>
         <span className='card-text'>{status}</span>
         <span className='card-text'>{species}</span>
       </div>
@@ -44,6 +47,10 @@ const ArticleWrapper = styled.article`
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: center;
+  }
+  .info-div > a:link,
+  a:visited {
+    color: inherit;
   }
   .card-text {
     margin: 0.3rem;
