@@ -2,22 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const LocationsCard = ({ location }) => {
-  const { id, name, type, dimension } = location
+const EpisodesCard = ({ episode }) => {
+  const { id, name, episode: episodeCode, air_date } = episode
   return (
     <ArticleWrapper>
       <div>
-        <Link className='location-link' to={`/locations/${id}`}>
+        <Link className='location-link' to={`/episodes/${id}`}>
           {name}
         </Link>
       </div>
-      <div>Type: {type}</div>
-      <div>Dimension: {dimension}</div>
+      <div>Epsiode Code: {episodeCode}</div>
+      <div>Air Date: {air_date}</div>
     </ArticleWrapper>
   )
 }
 
-export default LocationsCard
+export default EpisodesCard
 
 const ArticleWrapper = styled.article`
   border: 1px solid black;
@@ -31,7 +31,7 @@ const ArticleWrapper = styled.article`
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
-  height: fit-content;
+  align-content: center;
 
   .location-link:visited,
   .location-link:link {

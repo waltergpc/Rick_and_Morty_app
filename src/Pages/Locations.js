@@ -22,12 +22,15 @@ const Locations = () => {
   if (loading) return <pre>...Loading</pre>
   if (!info || !data) return <pre>...Loading</pre>
 
-  console.log(data, info)
   return (
     <Wrapper>
       {error && <h4>{error}</h4>}
       <SearchLocations setQueryUrl={setQueryUrl} setPage={setPage} />
-      <GridviewButtons setGridView={setGridView} gridView={gridView} />
+      <div className='info-div'>
+        <GridviewButtons setGridView={setGridView} gridView={gridView} />
+        <div className='count-div'>Total Count: {info.count}</div>
+      </div>
+
       {gridView ? (
         <Gridview data={data} provider='locations' />
       ) : (
@@ -55,4 +58,21 @@ const Wrapper = styled.section`
   object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;
+
+  .info-div {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .count-div {
+    text-align: center;
+    justify-self: center;
+    color: beige;
+    background-color: rgba(47, 47, 46, 0.7);
+    width: fit-content;
+    padding: 0.5rem;
+    margin-bottom: 0.3rem;
+    border-radius: 2rem;
+  }
 `

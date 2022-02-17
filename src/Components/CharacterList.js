@@ -1,12 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const CharacterList = ({ character }) => {
-  const { name, image, species, status } = character
+  const { id, name, image, species, status } = character
   return (
     <ArticleWrapper>
       <img className='avatar' src={image} alt={name} />
-      <div className='list-info'>{name}</div>
+      <div className='list-info'>
+        <Link className='character-link' to={`/characters/${id}`}>
+          {name}
+        </Link>
+      </div>
       <div className='list-info'>{species}</div>
       <div className='list-info mobile-hidden'>{status}</div>
     </ArticleWrapper>
@@ -39,6 +44,12 @@ const ArticleWrapper = styled.article`
 
   .mobile-hidden {
     display: none;
+  }
+
+  .character-link:link,
+  .character-link:visited {
+    color: beige;
+    text-decoration: underline;
   }
 
   @media (min-width: 900px) {

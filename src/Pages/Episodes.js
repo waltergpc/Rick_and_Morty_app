@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
+import SearchEpisodes from '../Components/SearchEpisodes'
 import Gridview from '../Components/Gridview'
 import GridviewButtons from '../Components/GridviewButtons'
 import ListView from '../Components/ListView'
 import Pagination from '../Components/Pagination'
-import SearchCharacters from '../Components/SearchCharacters'
 import { useFetch } from '../hooks/useFetch'
 import styled from 'styled-components'
-import background1 from '../Images/background1.png'
+import background5 from '../Images/background5.png'
 
-const Characters = () => {
+const Episodes = () => {
   const [queryUrl, setQueryUrl] = useState(
-    'https://rickandmortyapi.com/api/character/?'
+    'https://rickandmortyapi.com/api/episode/?'
   )
   const [page, setPage] = useState(1)
   const [gridView, setGridView] = useState(true)
@@ -25,7 +25,7 @@ const Characters = () => {
   return (
     <Wrapper>
       {error && <h4>{error}</h4>}
-      <SearchCharacters
+      <SearchEpisodes
         setQueryUrl={setQueryUrl}
         queryUrl={queryUrl}
         setPage={setPage}
@@ -35,9 +35,9 @@ const Characters = () => {
         <div className='count-div'>Total Count: {info.count}</div>
       </div>
       {gridView ? (
-        <Gridview data={data} provider='characters' />
+        <Gridview data={data} provider='episodes' />
       ) : (
-        <ListView data={data} provider='characters' />
+        <ListView data={data} provider='episodes' />
       )}
       <Pagination
         count={info.count}
@@ -52,12 +52,12 @@ const Characters = () => {
   )
 }
 
-export default Characters
+export default Episodes
 
 const Wrapper = styled.section`
   display: grid;
   align-items: center;
-  background-image: url(${background1});
+  background-image: url(${background5});
   object-fit: cover;
   background-size: cover;
   background-repeat: no-repeat;

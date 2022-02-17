@@ -29,6 +29,7 @@ const ArticleWrapper = styled.article`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   background-color: rgba(47, 47, 46, 0.9);
   color: beige;
+  height: fit-content;
   .avatar-div {
     border-radius: 50%;
     display: flex;
@@ -51,6 +52,7 @@ const ArticleWrapper = styled.article`
   .info-div > a:link,
   a:visited {
     color: inherit;
+    text-decoration: underline;
   }
   .card-text {
     margin: 0.3rem;

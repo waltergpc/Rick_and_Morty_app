@@ -2,10 +2,11 @@ import React from 'react'
 import CharacterCard from './CharacterCard'
 import LocationsCard from './LocationsCard'
 import styled from 'styled-components'
+import EpisodesCard from './EpisodesCard'
 
 const Gridview = ({ data, provider }) => {
   if (provider === 'characters') {
-    if (data.length < 1) return <h4>No Results matches</h4>
+    if (data.length < 1) return <h4>No Results matched</h4>
     return (
       <Wrapper>
         {data.map((character) => (
@@ -15,11 +16,22 @@ const Gridview = ({ data, provider }) => {
     )
   }
   if (provider === 'locations') {
-    if (data.length < 1) return <h4>No Results matches</h4>
+    if (data.length < 1) return <h4>No Results matched</h4>
     return (
       <Wrapper>
         {data.map((location) => (
           <LocationsCard location={location} key={location.id} />
+        ))}
+      </Wrapper>
+    )
+  }
+
+  if (provider === 'episodes') {
+    if (data.length < 1) return <h4>No Results matched</h4>
+    return (
+      <Wrapper>
+        {data.map((episode) => (
+          <EpisodesCard episode={episode} key={episode.id} />
         ))}
       </Wrapper>
     )

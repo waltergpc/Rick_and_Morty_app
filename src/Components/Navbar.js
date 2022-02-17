@@ -25,6 +25,9 @@ const Navbar = () => {
           <li>
             <Link to='/locations'>Locations</Link>
           </li>
+          <li>
+            <Link to='/episodes'>Episodes</Link>
+          </li>
         </ul>
       </div>
     </NavContainer>

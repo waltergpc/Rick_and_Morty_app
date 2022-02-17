@@ -2,20 +2,20 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const LocationsList = ({ location }) => {
-  const { id, name, type, dimension } = location
+const EpisodesList = ({ episode }) => {
+  const { id, name, episode: episodeCode, air_date } = episode
   return (
     <ArticleWrapper>
       <div className='list-info'>
-        <Link to={`/locations/${id}`}>{name}</Link>
+        <Link to={`/episodes/${id}`}>{name}</Link>
       </div>
-      <div className='list-info'>{type}</div>
-      <div className='list-info'>{dimension}</div>
+      <div className='list-info'>{episodeCode}</div>
+      <div className='list-info'>{air_date}</div>
     </ArticleWrapper>
   )
 }
 
-export default LocationsList
+export default EpisodesList
 
 const ArticleWrapper = styled.article`
   display: grid;

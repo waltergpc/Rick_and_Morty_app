@@ -2,6 +2,7 @@ import React from 'react'
 import CharacterList from './CharacterList'
 import styled from 'styled-components'
 import LocationsList from './LocationsList'
+import EpisodesList from './EpisodesList'
 
 const ListView = ({ provider, data }) => {
   if (provider === 'characters') {
@@ -37,6 +38,23 @@ const ListView = ({ provider, data }) => {
       </Wrapper>
     )
   }
+
+  if (provider === 'episodes') {
+    return (
+      <Wrapper>
+        <div className='locations-list-heading'>
+          <span>Name</span>
+          <span>Epsiode Code</span>
+          <span>Air Date</span>
+        </div>
+        <div className='list-body'>
+          {data.map((episode) => (
+            <EpisodesList key={episode.id} episode={episode} />
+          ))}
+        </div>
+      </Wrapper>
+    )
+  }
 }
 
 export default ListView
@@ -61,6 +79,7 @@ const Wrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: rgba(47, 47, 46, 0.9);
     color: beige;
+    align-content: center;
   }
 
   .locations-list-heading {
@@ -73,6 +92,7 @@ const Wrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     background-color: rgba(47, 47, 46, 0.9);
     color: beige;
+    align-content: center;
   }
 
   .list-body {
