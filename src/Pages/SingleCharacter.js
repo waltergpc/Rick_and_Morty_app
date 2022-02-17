@@ -26,7 +26,10 @@ const SingleCharacter = () => {
         {data.location && (
           <div>
             Location:
-            <Link to={`/locations/${getAfterSlashId(data.location.url)}`}>
+            <Link
+              className='location-link'
+              to={`/locations/${getAfterSlashId(data.location.url)}`}
+            >
               {data.location.name}
             </Link>
           </div>
@@ -34,7 +37,10 @@ const SingleCharacter = () => {
         {data.origin && (
           <div>
             Origin:
-            <Link to={`/locations/${getAfterSlashId(data.origin.url)}`}>
+            <Link
+              className='location-link'
+              to={`/locations/${getAfterSlashId(data.origin.url)}`}
+            >
               {data.origin.name}
             </Link>
           </div>
@@ -74,8 +80,9 @@ const Wrapper = styled.section`
     color: beige;
   }
 
-  .main-info > div > a:link,
-  a:visited {
+  .location-link:link,
+  .location-link:visited,
+  .location-link {
     color: rgb(194, 233, 16);
   }
 
