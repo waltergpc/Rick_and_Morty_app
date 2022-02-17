@@ -3,7 +3,7 @@ import { getAfterSlashId } from '../utils/getAfterSlashId'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const NumberLinks = ({ episodes, residents, locations }) => {
+const NumberLinks = ({ episodes, residents, characters }) => {
   if (episodes) {
     return (
       <Wrapper className='numbers-div'>
@@ -22,6 +22,8 @@ const NumberLinks = ({ episodes, residents, locations }) => {
       </Wrapper>
     )
   }
+  // Single Episode and Single locations pages have arrays that map to a character, a single
+  // conditional will be used for both with the prop of residents
   if (residents) {
     return (
       <Wrapper className='numbers-div'>

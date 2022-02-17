@@ -5,6 +5,7 @@ import Episodes from './Pages/Episodes'
 import Home from './Pages/Home'
 import Locations from './Pages/Locations'
 import SingleCharacter from './Pages/SingleCharacter'
+import SingleEpisode from './Pages/SingleEpisode'
 import SingleLocation from './Pages/SingleLocation'
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/episodes' element={<Episodes />} />
         <Route path='/characters/:id' element={<SingleCharacter />} />
         <Route path='/locations/:id' element={<SingleLocation />} />
+        <Route path='/episodes/:id' element={<SingleEpisode />} />
       </Routes>
     </BrowserRouter>
   )

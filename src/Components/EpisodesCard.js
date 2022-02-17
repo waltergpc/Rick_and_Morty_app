@@ -32,6 +32,7 @@ const ArticleWrapper = styled.article`
   justify-content: center;
   text-align: center;
   align-content: center;
+  height: fit-content;
 
   .location-link:visited,
   .location-link:link {
