@@ -7,6 +7,7 @@ import SearchCharacters from '../Components/SearchCharacters'
 import { useFetch } from '../hooks/useFetch'
 import styled from 'styled-components'
 import background1 from '../Images/background1.png'
+import Loading from '../Components/Loading'
 
 const Characters = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -19,8 +20,8 @@ const Characters = () => {
 
   const { loading, error, data, info } = useFetch(queryUrl, page)
 
-  if (loading) return <pre>...Loading</pre>
-  if (!info) return <pre>...Loading</pre>
+  if (loading) return <Loading />
+  if (!info) return <Loading />
 
   return (
     <Wrapper>

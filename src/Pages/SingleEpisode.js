@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import useSingleFetch from '../hooks/useSingleFetch'
 import NumberLinks from '../Components/NumberLinks'
 import background6 from '../Images/background6.png'
+import Loading from '../Components/Loading'
 
 const SingleEpisode = () => {
   const { id } = useParams()
@@ -12,8 +13,8 @@ const SingleEpisode = () => {
   const { data, loading, error } = useSingleFetch(url)
   console.log(data, loading, error)
 
-  if (loading) return <pre>...Loading</pre>
-  if (!data) return <pre>...Loading</pre>
+  if (loading) return <Loading />
+  if (!data) return <Loading />
   return (
     <Wrapper>
       {error && <div>{error}</div>}

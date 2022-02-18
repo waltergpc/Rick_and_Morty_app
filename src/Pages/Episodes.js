@@ -7,6 +7,7 @@ import Pagination from '../Components/Pagination'
 import { useFetch } from '../hooks/useFetch'
 import styled from 'styled-components'
 import background5 from '../Images/background5.png'
+import Loading from '../Components/Loading'
 
 const Episodes = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -19,8 +20,8 @@ const Episodes = () => {
 
   const { loading, error, data, info } = useFetch(queryUrl, page)
 
-  if (loading) return <pre>...Loading</pre>
-  if (!info) return <pre>...Loading</pre>
+  if (loading) return <Loading />
+  if (!info) return <Loading />
 
   return (
     <Wrapper>

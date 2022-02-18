@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { getAfterSlashId } from '../utils/getAfterSlashId'
 import NumberLinks from '../Components/NumberLinks'
 import background3 from '../Images/background3.png'
+import Loading from '../Components/Loading'
 
 const SingleCharacter = () => {
   const { id } = useParams()
@@ -14,8 +15,8 @@ const SingleCharacter = () => {
   const { data, loading, error } = useSingleFetch(url)
   console.log(data)
 
-  if (loading) return <pre>...Loading</pre>
-  if (!data) return <pre>...Loading</pre>
+  if (loading) return <Loading />
+  if (!data) return <Loading />
 
   return (
     <Wrapper>

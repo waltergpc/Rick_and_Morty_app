@@ -7,6 +7,7 @@ import { useFetch } from '../hooks/useFetch'
 import background2 from '../Images/background2.png'
 import styled from 'styled-components'
 import ListView from '../Components/ListView'
+import Loading from '../Components/Loading'
 
 const Locations = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -19,8 +20,8 @@ const Locations = () => {
 
   const { loading, error, data, info } = useFetch(queryUrl, page)
 
-  if (loading) return <pre>...Loading</pre>
-  if (!info || !data) return <pre>...Loading</pre>
+  if (loading) return <Loading />
+  if (!info || !data) return <Loading />
 
   return (
     <Wrapper>
