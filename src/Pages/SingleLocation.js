@@ -68,6 +68,6 @@ const Wrapper = styled.section`
   @media (min-width: 900px) {
     grid-template-columns: 1fr 1fr;
     padding: 5rem 1rem;
-    height: 65vh;
+    height: 75vh;
   }
 `

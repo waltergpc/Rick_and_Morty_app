@@ -24,7 +24,9 @@ const SingleEpisode = () => {
       </div>
       <div className='residents-div'>
         <h5 className='residents-title'>Characters</h5>
-        {data.characters && <NumberLinks residents={data.characters} />}
+        <div className='numbers-div'>
+          {data.characters && <NumberLinks residents={data.characters} />}
+        </div>
       </div>
     </Wrapper>
   )
@@ -56,6 +58,7 @@ const Wrapper = styled.section`
   .residents-div {
     padding: 0.5rem;
     text-align: center;
+    overflow: scroll;
   }
 
   .residents-title {
@@ -68,6 +71,6 @@ const Wrapper = styled.section`
   @media (min-width: 900px) {
     grid-template-columns: 1fr 1fr;
     padding: 5rem 1rem;
-    height: 70vh;
+    height: 75vh;
   }
 `

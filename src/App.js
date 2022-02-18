@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Footer from './Components/Footer'
 import Navbar from './Components/Navbar'
+import Sidebar from './Components/Sidebar'
 import Characters from './Pages/Characters'
 import Episodes from './Pages/Episodes'
 import Home from './Pages/Home'
@@ -12,6 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Sidebar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/characters' element={<Characters />} />
@@ -21,6 +24,7 @@ function App() {
         <Route path='/locations/:id' element={<SingleLocation />} />
         <Route path='/episodes/:id' element={<SingleEpisode />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   )
 }

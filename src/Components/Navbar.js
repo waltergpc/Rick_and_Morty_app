@@ -2,8 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
+import { useGlobalContext } from '../Context/GlobalContext'
 
 const Navbar = () => {
+  const { setSideBarOpen } = useGlobalContext()
   return (
     <NavContainer>
       <div className='nav-center'>
@@ -11,7 +13,11 @@ const Navbar = () => {
           <Link to='/'>
             <h4>Rick and Morty App</h4>
           </Link>
-          <button type='button' className='nav-toggle'>
+          <button
+            type='button'
+            className='nav-toggle'
+            onClick={() => setSideBarOpen(true)}
+          >
             <FaBars />
           </button>
         </div>
@@ -61,18 +67,20 @@ const NavContainer = styled.nav`
   .nav-toggle {
     background: transparent;
     border: transparent;
-    color: var(--clr-primary-5);
+    color: beige;
+    transition: var(--transition);
     cursor: pointer;
     svg {
       font-size: 2rem;
     }
   }
+  .nav-toggle:hover {
+    color: rgb(194, 233, 16);
+  }
   .nav-links {
     display: none;
   }
-  .cart-btn-wrapper {
-    display: none;
-  }
+
   @media (min-width: 992px) {
     .nav-toggle {
       display: none;
@@ -100,9 +108,6 @@ const NavContainer = styled.nav`
           color: rgb(194, 233, 16);
         }
       }
-    }
-    .cart-btn-wrapper {
-      display: grid;
     }
   }
 `
