@@ -24,7 +24,9 @@ const SingleLocation = () => {
       </div>
       <div className='residents-div'>
         <h5 className='residents-title'>Residents</h5>
-        {data.residents && <NumberLinks residents={data.residents} />}
+        <div className='residents-code-div'>
+          {data.residents && <NumberLinks residents={data.residents} />}
+        </div>
       </div>
     </Wrapper>
   )
@@ -56,6 +58,12 @@ const Wrapper = styled.section`
   .residents-div {
     padding: 0.5rem;
     text-align: center;
+    height: 80%;
+    overflow: scroll;
+  }
+
+  .residents-code-div {
+    overflow: scroll;
   }
 
   .residents-title {
