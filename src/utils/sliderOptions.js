@@ -1,6 +1,7 @@
 import background3 from '../Images/background3.png'
 import background5 from '../Images/background5.png'
 import background6 from '../Images/background6.png'
+import background7 from '../Images/background7.png'
 
 export const slidesInfo = [
   {
@@ -8,7 +9,7 @@ export const slidesInfo = [
     name: 'Home',
     description:
       'Welcome to Rick and Morty app, have a look at all your favorite characters, episodes and locations',
-    image: background3,
+    image: background7,
     url: '/',
   },
   {

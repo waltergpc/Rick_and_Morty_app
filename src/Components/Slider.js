@@ -39,7 +39,7 @@ const Slider = () => {
               <h4>
                 <Link to={`${url}`}>{name}</Link>
               </h4>
-              <p>{description}</p>
+              <p className='description'>{description}</p>
             </article>
           )
         })}
@@ -65,10 +65,11 @@ const Slider = () => {
 export default Slider
 
 const Wrapper = styled.section`
-  margin-bottom: 1rem;
+  padding-bottom: 4rem;
+  color: beige;
   .center {
     margin: 0 auto;
-    background-color: rgba(47, 47, 46, 0.4);
+    background-color: rgba(47, 47, 46, 0.7);
     border-radius: 1rem;
     margin-top: 3rem;
     width: 80vw;
@@ -87,6 +88,10 @@ const Wrapper = styled.section`
     object-fit: cover;
     border: 4px solid var(--clr-grey-8);
     box-shadow: var(--dark-shadow);
+  }
+
+  .description {
+    color: beige;
   }
 
   .prev,
