@@ -8,7 +8,7 @@ const Gridview = ({ data, provider }) => {
   if (provider === 'characters') {
     if (data.length < 1) return <h4>No Results matched</h4>
     return (
-      <Wrapper>
+      <Wrapper data-testid='grid-view'>
         {data.map((character) => (
           <CharacterCard key={character.id} character={character} />
         ))}
@@ -18,7 +18,7 @@ const Gridview = ({ data, provider }) => {
   if (provider === 'locations') {
     if (data.length < 1) return <h4>No Results matched</h4>
     return (
-      <Wrapper>
+      <Wrapper data-testid='grid-view'>
         {data.map((location) => (
           <LocationsCard location={location} key={location.id} />
         ))}
@@ -29,7 +29,7 @@ const Gridview = ({ data, provider }) => {
   if (provider === 'episodes') {
     if (data.length < 1) return <h4>No Results matched</h4>
     return (
-      <Wrapper>
+      <Wrapper data-testid='grid-view'>
         {data.map((episode) => (
           <EpisodesCard episode={episode} key={episode.id} />
         ))}

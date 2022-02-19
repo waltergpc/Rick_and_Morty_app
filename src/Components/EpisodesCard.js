@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const EpisodesCard = ({ episode }) => {
   const { id, name, episode: episodeCode, air_date } = episode
   return (
-    <ArticleWrapper>
+    <ArticleWrapper data-testid='episode-card'>
       <div>
         <Link className='location-link' to={`/episodes/${id}`}>
           {name}

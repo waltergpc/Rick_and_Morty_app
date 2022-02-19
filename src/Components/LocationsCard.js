@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const LocationsCard = ({ location }) => {
   const { id, name, type, dimension } = location
   return (
-    <ArticleWrapper>
+    <ArticleWrapper data-testid='location-card'>
       <div>
         <Link className='location-link' to={`/locations/${id}`}>
           {name}
