@@ -34,6 +34,7 @@ const Pagination = ({
     <Wrapper>
       <button
         type='button'
+        data-testid='prev-btn'
         className='page-btn prev-btn'
         onClick={handlePrevClick}
         disabled={page === 1}
@@ -49,6 +50,7 @@ const Pagination = ({
               className={page === number ? 'page-btn active' : 'page-btn'}
               key={number}
               onClick={(e) => setPage(Number(e.target.textContent))}
+              data-testid='pages-btns'
             >
               {number}
             </button>
@@ -62,6 +64,7 @@ const Pagination = ({
       )}
       <button
         type='button'
+        data-testid='next-btn'
         className='page-btn nxt-btn'
         onClick={handleNextClick}
         disabled={page === pages[pages.length - 1] || pages.length < 1}

@@ -23,16 +23,24 @@ const Navbar = () => {
         </div>
         <ul className='nav-links'>
           <li>
-            <Link to='/'>Home</Link>
+            <Link data-testid='nav-link' to='/'>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to='/characters'>Characters</Link>
+            <Link data-testid='nav-link' to='/characters'>
+              Characters
+            </Link>
           </li>
           <li>
-            <Link to='/locations'>Locations</Link>
+            <Link data-testid='nav-link' to='/locations'>
+              Locations
+            </Link>
           </li>
           <li>
-            <Link to='/episodes'>Episodes</Link>
+            <Link data-testid='nav-link' to='/episodes'>
+              Episodes
+            </Link>
           </li>
         </ul>
       </div>
