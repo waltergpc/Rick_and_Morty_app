@@ -6,6 +6,8 @@ import EpisodesList from './EpisodesList'
 
 const ListView = ({ provider, data }) => {
   if (provider === 'characters') {
+    if (data.length < 1)
+      return <div className='not-found'>No Results matched</div>
     return (
       <Wrapper>
         <div className='characters-list-heading'>
@@ -23,6 +25,8 @@ const ListView = ({ provider, data }) => {
     )
   }
   if (provider === 'locations') {
+    if (data.length < 1)
+      return <div className='not-found'>No Results matched</div>
     return (
       <Wrapper>
         <div className='locations-list-heading'>
@@ -40,6 +44,8 @@ const ListView = ({ provider, data }) => {
   }
 
   if (provider === 'episodes') {
+    if (data.length < 1)
+      return <div className='not-found'>No Results matched</div>
     return (
       <Wrapper>
         <div className='locations-list-heading'>

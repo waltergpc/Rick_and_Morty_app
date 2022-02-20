@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const LocationsList = ({ location }) => {
   const { id, name, type, dimension } = location
   return (
-    <ArticleWrapper>
+    <ArticleWrapper data-testid='location-list'>
       <div className='list-info'>
         <Link to={`/locations/${id}`}>{name}</Link>
       </div>

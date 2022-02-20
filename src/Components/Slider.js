@@ -73,7 +73,7 @@ const Wrapper = styled.section`
     border-radius: 1rem;
     margin-top: 3rem;
     width: 80vw;
-    height: 380px;
+    height: 350px;
     max-width: 800px;
     text-align: center;
     position: relative;

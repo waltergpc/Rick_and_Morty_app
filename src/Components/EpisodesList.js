@@ -5,7 +5,7 @@ import styled from 'styled-components'
 const EpisodesList = ({ episode }) => {
   const { id, name, episode: episodeCode, air_date } = episode
   return (
-    <ArticleWrapper>
+    <ArticleWrapper data-testid='episode-list'>
       <div className='list-info'>
         <Link to={`/episodes/${id}`}>{name}</Link>
       </div>

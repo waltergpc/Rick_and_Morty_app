@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const CharacterList = ({ character }) => {
   const { id, name, image, species, status } = character
   return (
-    <ArticleWrapper>
+    <ArticleWrapper data-testid='character-list'>
       <img className='avatar' src={image} alt={name} />
       <div className='list-info'>
         <Link className='character-link' to={`/characters/${id}`}>

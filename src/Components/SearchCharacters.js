@@ -91,7 +91,17 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
           <option value='unknown'>Unknown</option>
         </select>
       </div>
-      <button type='submit' className='search-btn'>
+      <button
+        type='submit'
+        className='search-btn'
+        disabled={
+          !queryValues.name &&
+          !queryValues.type &&
+          !queryValues.species &&
+          queryValues.status === 'all' &&
+          queryValues.gender === 'all'
+        }
+      >
         <FaSearch />
       </button>
     </FormWrapper>
@@ -131,6 +141,10 @@ const FormWrapper = styled.form`
     border: none;
     cursor: pointer;
     transition: var(--transition);
+  }
+
+  .search-btn:disabled {
+    opacity: 0.7;
   }
 
   @media (max-width: 900px) {

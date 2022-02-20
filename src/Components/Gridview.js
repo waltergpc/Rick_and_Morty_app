@@ -6,7 +6,8 @@ import EpisodesCard from './EpisodesCard'
 
 const Gridview = ({ data, provider }) => {
   if (provider === 'characters') {
-    if (data.length < 1) return <h4>No Results matched</h4>
+    if (data.length < 1)
+      return <div className='not-found'>No Results matched</div>
     return (
       <Wrapper data-testid='grid-view'>
         {data.map((character) => (
@@ -16,7 +17,8 @@ const Gridview = ({ data, provider }) => {
     )
   }
   if (provider === 'locations') {
-    if (data.length < 1) return <h4>No Results matched</h4>
+    if (data.length < 1)
+      return <div className='not-found'>No Results matched</div>
     return (
       <Wrapper data-testid='grid-view'>
         {data.map((location) => (
@@ -27,7 +29,8 @@ const Gridview = ({ data, provider }) => {
   }
 
   if (provider === 'episodes') {
-    if (data.length < 1) return <h4>No Results matched</h4>
+    if (data.length < 1)
+      return <div className='not-found'>No Results matched</div>
     return (
       <Wrapper data-testid='grid-view'>
         {data.map((episode) => (

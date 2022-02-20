@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 const Footer = () => {
+  console.log(window.innerHeight)
   return (
     <Wrapper>
       <h5>
@@ -13,7 +14,7 @@ const Footer = () => {
 }
 
 const Wrapper = styled.footer`
-  height: 7rem;
+  height: 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,6 +33,10 @@ const Wrapper = styled.footer`
   }
   @media (min-width: 776px) {
     flex-direction: row;
+  }
+
+  @media (min-height: 751px) {
+    height: 13rem;
   }
 `
 

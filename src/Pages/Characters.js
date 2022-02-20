@@ -8,6 +8,7 @@ import { useFetch } from '../hooks/useFetch'
 import styled from 'styled-components'
 import background1 from '../Images/background1.png'
 import Loading from '../Components/Loading'
+import ResetButton from '../Components/ResetButton'
 
 const Characters = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -34,6 +35,10 @@ const Characters = () => {
       <div className='info-div'>
         <GridviewButtons setGridView={setGridView} gridView={gridView} />
         <div className='count-div'>Total Count: {info.count}</div>
+        <ResetButton
+          resetUrl={setQueryUrl}
+          originalUrl='https://rickandmortyapi.com/api/character/?'
+        />
       </div>
       {gridView ? (
         <Gridview data={data} provider='characters' />
@@ -67,6 +72,7 @@ const Wrapper = styled.section`
     margin-top: 0.5rem;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
   }
 
   .count-div {
@@ -75,8 +81,16 @@ const Wrapper = styled.section`
     color: beige;
     background-color: rgba(47, 47, 46, 0.7);
     width: fit-content;
-    padding: 0.5rem;
+    padding: 0.3rem;
+    font-size: 0.7rem;
     margin-bottom: 0.3rem;
     border-radius: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .count-div {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
   }
 `

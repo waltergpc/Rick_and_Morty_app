@@ -8,6 +8,7 @@ import background2 from '../Images/background2.png'
 import styled from 'styled-components'
 import ListView from '../Components/ListView'
 import Loading from '../Components/Loading'
+import ResetButton from '../Components/ResetButton'
 
 const Locations = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -30,6 +31,10 @@ const Locations = () => {
       <div className='info-div'>
         <GridviewButtons setGridView={setGridView} gridView={gridView} />
         <div className='count-div'>Total Count: {info.count}</div>
+        <ResetButton
+          resetUrl={setQueryUrl}
+          originalUrl='https://rickandmortyapi.com/api/location/?'
+        />
       </div>
 
       {gridView ? (
