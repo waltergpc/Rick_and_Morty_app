@@ -3,7 +3,7 @@ import { getAfterSlashId } from '../utils/getAfterSlashId'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const NumberLinks = ({ episodes, residents, characters }) => {
+const NumberLinks = ({ episodes, residents }) => {
   if (episodes) {
     return (
       <Wrapper className='numbers-div'>
@@ -12,6 +12,7 @@ const NumberLinks = ({ episodes, residents, characters }) => {
           return (
             <Link
               key={episodeId}
+              data-testid='num-link'
               className='num-link'
               to={`/episodes/${episodeId}`}
             >
@@ -33,6 +34,7 @@ const NumberLinks = ({ episodes, residents, characters }) => {
             <Link
               key={residentId}
               className='num-link'
+              data-testid='num-link'
               to={`/characters/${residentId}`}
             >
               {residentId}

@@ -37,7 +37,9 @@ const Slider = () => {
             <article key={id} className={position}>
               <img src={image} alt={name} className='slide-img' />
               <h4>
-                <Link to={`${url}`}>{name}</Link>
+                <Link className='slider-link' to={`${url}`}>
+                  {name}
+                </Link>
               </h4>
               <p className='description'>{description}</p>
             </article>
@@ -143,6 +145,11 @@ const Wrapper = styled.section`
   }
   article.nextSlide {
     transform: translateX(100%);
+  }
+
+  .slider-link:link,
+  .slider-link:visited {
+    color: beige;
   }
 
   @media (min-width: 900px) {
