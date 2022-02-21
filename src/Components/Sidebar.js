@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FaTimes } from 'react-icons/fa'
 import styled from 'styled-components'
 import { useGlobalContext } from '../Context/GlobalContext'
+import logo from '../Images/logo.png'
 
 const Sidebar = () => {
   const { sideBarOpen, setSideBarOpen } = useGlobalContext()
@@ -11,7 +12,7 @@ const Sidebar = () => {
     <SidebarContainer>
       <aside className={sideBarOpen ? 'sidebar show-sidebar' : 'sidebar'}>
         <div className='sidebar-header'>
-          <img className='logo' alt='bike-terrain' />
+          <img className='logo' src={logo} alt='bike-terrain' />
           <button
             className='close-btn'
             type='button'
@@ -70,6 +71,7 @@ const SidebarContainer = styled.div`
   .logo {
     justify-self: center;
     height: 60px;
+    border-radius: 50%;
   }
   .links {
     margin-bottom: 2rem;

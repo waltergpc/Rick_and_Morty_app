@@ -69,6 +69,7 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
           value={queryValues.status}
           onChange={handleChange}
           className='select-input'
+          data-testid='status-input'
         >
           <option value='all'>All</option>
           <option value='alive'>Alive</option>
@@ -83,6 +84,7 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
           value={queryValues.gender}
           onChange={handleChange}
           className='select-input'
+          data-testid='gender-input'
         >
           <option value='all'>All</option>
           <option value='male'>Male</option>

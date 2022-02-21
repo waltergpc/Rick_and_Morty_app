@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import { useGlobalContext } from '../Context/GlobalContext'
+import logo from '../Images/logo.png'
 
 const Navbar = () => {
   const { setSideBarOpen } = useGlobalContext()
@@ -10,8 +11,9 @@ const Navbar = () => {
     <NavContainer>
       <div className='nav-center'>
         <div className='nav-header'>
+          <img src={logo} alt='logo' />
           <Link to='/'>
-            <h4>Rick and Morty App</h4>
+            <h4 className='nav-title'>Rick and Morty App</h4>
           </Link>
           <button
             type='button'
@@ -66,12 +68,19 @@ const NavContainer = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    align-content: center;
     img {
-      width: 150px;
-      height: 78px;
-      margin-left: -15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+    a {
+      align-content: center;
+      padding-top: 0.5rem;
     }
   }
+
   .nav-toggle {
     background: transparent;
     border: transparent;
