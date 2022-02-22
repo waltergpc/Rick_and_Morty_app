@@ -101,4 +101,8 @@ const Wrapper = styled.section`
     grid-template-columns: 1fr 1fr;
     padding: 5rem 1rem;
   }
+
+  @media (min-height: 751px) {
+    height: 75vh;
+  }
 `

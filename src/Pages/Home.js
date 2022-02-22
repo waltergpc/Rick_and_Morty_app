@@ -28,4 +28,8 @@ const Wrapper = styled.section`
     padding: 1rem;
     border-radius: 1rem;
   }
+
+  @media (min-height: 751px) {
+    height: 75vh;
+  }
 `

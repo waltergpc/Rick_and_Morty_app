@@ -73,4 +73,8 @@ const Wrapper = styled.section`
     padding: 5rem 1rem;
     height: 75vh;
   }
+
+  @media (min-height: 751px) {
+    height: 75vh;
+  }
 `
