@@ -13,7 +13,6 @@ const SingleCharacter = () => {
   let url = `https://rickandmortyapi.com/api/character/${id}`
 
   const { data, loading, error } = useSingleFetch(url)
-  console.log(data)
 
   if (loading) return <Loading />
   if (!data) return <Loading />

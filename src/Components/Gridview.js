@@ -4,7 +4,7 @@ import LocationsCard from './LocationsCard'
 import styled from 'styled-components'
 import EpisodesCard from './EpisodesCard'
 
-const Gridview = ({ data, provider }) => {
+const Gridview = React.memo(({ data, provider }) => {
   if (provider === 'characters') {
     if (data.length < 1)
       return <div className='not-found'>No Results matched</div>
@@ -39,7 +39,7 @@ const Gridview = ({ data, provider }) => {
       </Wrapper>
     )
   }
-}
+})
 
 export default Gridview
 

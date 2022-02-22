@@ -11,7 +11,6 @@ const SingleLocation = () => {
   let url = `https://rickandmortyapi.com/api/location/${id}`
 
   const { data, loading, error } = useSingleFetch(url)
-  console.log(data, loading, error)
 
   if (loading) return <Loading />
   if (!data) return <Loading />

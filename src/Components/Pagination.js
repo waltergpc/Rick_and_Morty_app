@@ -1,79 +1,92 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import styled from 'styled-components'
 
-const Pagination = ({
-  count,
-  page,
-  setPage,
-  maxPageNumberLimit,
-  minPageNumberLimit,
-  setMaxPageNumberLimit,
-  setMinPageNumberLimit,
-}) => {
-  const pages = []
+const Pagination = React.memo(
+  ({
+    count,
+    page,
+    setPage,
+    maxPageNumberLimit,
+    minPageNumberLimit,
+    setMaxPageNumberLimit,
+    setMinPageNumberLimit,
+  }) => {
+    /*const pages = []
   for (let i = 1; i <= Math.ceil(count / 20); i++) {
     pages.push(i)
-  }
-  const handleNextClick = () => {
-    setPage(page + 1)
-    if (page + 1 > maxPageNumberLimit) {
-      setMaxPageNumberLimit(maxPageNumberLimit + 5)
-      setMinPageNumberLimit(minPageNumberLimit + 5)
-    }
-  }
+  }*/
 
-  const handlePrevClick = () => {
-    setPage(page - 1)
-    if ((page - 1) % 5 === 0) {
-      setMaxPageNumberLimit(maxPageNumberLimit - 5)
-      setMinPageNumberLimit(minPageNumberLimit - 5)
+    const getPages = (numOfElements) => {
+      let tempPages = []
+      for (let i = 1; i <= Math.ceil(numOfElements / 20); i++) {
+        tempPages.push(i)
+      }
+      return tempPages
     }
-  }
 
-  return (
-    <Wrapper>
-      <button
-        type='button'
-        data-testid='prev-btn'
-        className='page-btn prev-btn'
-        onClick={handlePrevClick}
-        disabled={page === 1}
-      >
-        Prev
-      </button>
-      {minPageNumberLimit > 4 && <button className='page-btn'>...</button>}
-      {pages.map((number) => {
-        if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
-          return (
-            <button
-              type='button'
-              className={page === number ? 'page-btn active' : 'page-btn'}
-              key={number}
-              onClick={(e) => setPage(Number(e.target.textContent))}
-              data-testid='pages-btns'
-            >
-              {number}
-            </button>
-          )
-        } else {
-          return null
-        }
-      })}
-      {pages.length > maxPageNumberLimit && (
-        <button className='page-btn'>...</button>
-      )}
-      <button
-        type='button'
-        data-testid='next-btn'
-        className='page-btn nxt-btn'
-        onClick={handleNextClick}
-        disabled={page === pages[pages.length - 1] || pages.length < 1}
-      >
-        Next
-      </button>
-    </Wrapper>
-  )
-}
+    const pages = useMemo(() => getPages(count), [count])
+
+    const handleNextClick = () => {
+      setPage(page + 1)
+      if (page + 1 > maxPageNumberLimit) {
+        setMaxPageNumberLimit(maxPageNumberLimit + 5)
+        setMinPageNumberLimit(minPageNumberLimit + 5)
+      }
+    }
+
+    const handlePrevClick = () => {
+      setPage(page - 1)
+      if ((page - 1) % 5 === 0) {
+        setMaxPageNumberLimit(maxPageNumberLimit - 5)
+        setMinPageNumberLimit(minPageNumberLimit - 5)
+      }
+    }
+
+    return (
+      <Wrapper>
+        <button
+          type='button'
+          data-testid='prev-btn'
+          className='page-btn prev-btn'
+          onClick={handlePrevClick}
+          disabled={page === 1}
+        >
+          Prev
+        </button>
+        {minPageNumberLimit > 4 && <button className='page-btn'>...</button>}
+        {pages.map((number) => {
+          if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
+            return (
+              <button
+                type='button'
+                className={page === number ? 'page-btn active' : 'page-btn'}
+                key={number}
+                onClick={(e) => setPage(Number(e.target.textContent))}
+                data-testid='pages-btns'
+              >
+                {number}
+              </button>
+            )
+          } else {
+            return null
+          }
+        })}
+        {pages.length > maxPageNumberLimit && (
+          <button className='page-btn'>...</button>
+        )}
+        <button
+          type='button'
+          data-testid='next-btn'
+          className='page-btn nxt-btn'
+          onClick={handleNextClick}
+          disabled={page === pages[pages.length - 1] || pages.length < 1}
+        >
+          Next
+        </button>
+      </Wrapper>
+    )
+  }
+)
 
 export default Pagination
 

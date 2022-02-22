@@ -9,10 +9,8 @@ export const useFetch = (url, page) => {
 
   const getData = useCallback(
     async (queryUrl) => {
-      console.log('hola')
       setLoading(true)
       queryUrl = `${queryUrl}&page=${page}`
-      console.log(queryUrl)
       try {
         const { data } = await axios.get(queryUrl)
         setInfo({ ...data.info })

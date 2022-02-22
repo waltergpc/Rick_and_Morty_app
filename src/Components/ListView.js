@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import LocationsList from './LocationsList'
 import EpisodesList from './EpisodesList'
 
-const ListView = ({ provider, data }) => {
+const ListView = React.memo(({ provider, data }) => {
   if (provider === 'characters') {
     if (data.length < 1)
       return <div className='not-found'>No Results matched</div>
@@ -61,7 +61,7 @@ const ListView = ({ provider, data }) => {
       </Wrapper>
     )
   }
-}
+})
 
 export default ListView
 

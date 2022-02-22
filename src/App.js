@@ -6,6 +6,7 @@ import Characters from './Pages/Characters'
 import Episodes from './Pages/Episodes'
 import Home from './Pages/Home'
 import Locations from './Pages/Locations'
+import NotFound from './Pages/NotFound'
 import SingleCharacter from './Pages/SingleCharacter'
 import SingleEpisode from './Pages/SingleEpisode'
 import SingleLocation from './Pages/SingleLocation'
@@ -23,6 +24,7 @@ function App() {
         <Route path='/characters/:id' element={<SingleCharacter />} />
         <Route path='/locations/:id' element={<SingleLocation />} />
         <Route path='/episodes/:id' element={<SingleEpisode />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </BrowserRouter>
