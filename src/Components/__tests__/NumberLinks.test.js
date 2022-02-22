@@ -28,3 +28,10 @@ test('should render links for residents', () => {
   expect(numElements[numElements.length - 1]).toBeInTheDocument()
   expect(numElements.length).toBeGreaterThanOrEqual(mockResidents.length)
 })
+
+test('should render empty without residents', () => {
+  render(<MockEpisodesNumberLinks residents={[]} />)
+  const numDiv = screen.getByTestId('numbers-div')
+  expect(numDiv).toBeInTheDocument()
+  expect(numDiv).toBeVisible()
+})

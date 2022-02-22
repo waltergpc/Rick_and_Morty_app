@@ -27,7 +27,7 @@ const NumberLinks = ({ episodes, residents }) => {
   // conditional will be used for both with the prop of residents
   if (residents) {
     return (
-      <Wrapper className='numbers-div'>
+      <Wrapper className='numbers-div' data-testid='numbers-div'>
         {residents.map((resident) => {
           const residentId = getAfterSlashId(resident)
           return (

@@ -4,12 +4,13 @@ This repo will contain code for gpac challenge where Rick and Mort API will be u
 
 ## To-do
 
-[] Set up basic structure and folders
-[] Set up pages (Home, about, characters, locations, etc...)
-[] Custom hook for data fetching
-[] Components for list and grid rendering
-[] Pagination components
-[] Search bar
+[x] Set up basic structure and folders
+[x] Set up pages (Home, about, characters, locations, etc...)
+[x] Custom hook for data fetching
+[x] Components for list and grid rendering
+[x] Pagination components
+[x] Search bar
+[x] Single location, episode and character page
 
 ### Command for installation
 
