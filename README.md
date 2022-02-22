@@ -17,3 +17,8 @@ This repo will contain code for gpac challenge where Rick and Mort API will be u
 git clone https://github.com/waltergpc/Rick_and_Morty_app.git
 npm i
 npm start
+
+#### Other Scripts
+
+npm run build for build
+npm run test for unit tests
