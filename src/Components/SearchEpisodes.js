@@ -41,7 +41,11 @@ const SearchEpisodes = ({ setQueryUrl, setPage }) => {
         value={queryValues.episode}
         onChange={handleChange}
       />
-      <button className='search-btn' type='submit'>
+      <button
+        className='search-btn'
+        type='submit'
+        disabled={!queryValues.name && !queryValues.episode}
+      >
         <FaSearch />
       </button>
     </FormWrapper>
@@ -82,6 +86,10 @@ const FormWrapper = styled.form`
     border: none;
     cursor: pointer;
     transition: var(--transition);
+  }
+
+  .search-btn:disabled {
+    opacity: 0.7;
   }
 
   @media (min-width: 900px) {
