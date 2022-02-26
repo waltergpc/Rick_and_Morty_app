@@ -13,8 +13,8 @@ export const useFetch = (url, page) => {
       queryUrl = `${queryUrl}&page=${page}`
       try {
         const { data } = await axios.get(queryUrl)
-        setInfo({ ...data.info })
-        setData([...data.results])
+        setInfo(data.info)
+        setData(data.results)
         setLoading(false)
       } catch (error) {
         if (error.response.status === 404) {
