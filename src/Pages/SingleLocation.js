@@ -9,6 +9,7 @@ import Loading from '../Components/Loading'
 const SingleLocation = () => {
   const { id } = useParams()
   let url = `https://rickandmortyapi.com/api/location/${id}`
+  let residentsRelationshipURL = 'https://rickandmortyapi.com/api/character/'
 
   const { data, loading, error } = useSingleFetch(url)
 
@@ -25,7 +26,12 @@ const SingleLocation = () => {
       <div className='residents-div'>
         <h5 className='residents-title'>Residents</h5>
         <div className='residents-code-div'>
-          {data.residents && <NumberLinks residents={data.residents} />}
+          {data.residents && (
+            <NumberLinks
+              urlsArray={data.residents}
+              relationshipURL={residentsRelationshipURL}
+            />
+          )}
         </div>
       </div>
     </Wrapper>

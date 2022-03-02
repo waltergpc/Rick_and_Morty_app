@@ -9,6 +9,7 @@ import Loading from '../Components/Loading'
 const SingleEpisode = () => {
   const { id } = useParams()
   let url = `https://rickandmortyapi.com/api/episode/${id}`
+  let charactersRelationshipURL = 'https://rickandmortyapi.com/api/character/'
 
   const { data, loading, error } = useSingleFetch(url)
 
@@ -25,7 +26,12 @@ const SingleEpisode = () => {
       <div className='residents-div'>
         <h5 className='residents-title'>Characters</h5>
         <div className='numbers-div'>
-          {data.characters && <NumberLinks residents={data.characters} />}
+          {data.characters && (
+            <NumberLinks
+              urlsArray={data.characters}
+              relationshipURL={charactersRelationshipURL}
+            />
+          )}
         </div>
       </div>
     </Wrapper>

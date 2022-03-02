@@ -11,6 +11,7 @@ import Loading from '../Components/Loading'
 const SingleCharacter = () => {
   const { id } = useParams()
   let url = `https://rickandmortyapi.com/api/character/${id}`
+  let episodesRelationshipURL = 'https://rickandmortyapi.com/api/episode/'
 
   const { data, loading, error } = useSingleFetch(url)
 
@@ -51,7 +52,12 @@ const SingleCharacter = () => {
       </div>
       <div className='episodes-div'>
         <h5>Episodes of Appearance</h5>
-        {data.episode && <NumberLinks episodes={data.episode} />}
+        {data.episode && (
+          <NumberLinks
+            urlsArray={data.episode}
+            relationshipURL={episodesRelationshipURL}
+          />
+        )}
       </div>
     </Wrapper>
   )
@@ -95,6 +101,8 @@ const Wrapper = styled.section`
   .episodes-div {
     padding: 0.5rem;
     text-align: center;
+    overflow: scroll;
+    height: 80%;
   }
 
   @media (min-width: 900px) {

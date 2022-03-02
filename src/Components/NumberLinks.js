@@ -1,49 +1,36 @@
 import React from 'react'
+
 import { getAfterSlashId } from '../utils/getAfterSlashId'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { useFetch } from '../hooks/useFetch'
 
-const NumberLinks = ({ episodes, residents }) => {
-  if (episodes) {
-    return (
-      <Wrapper className='numbers-div'>
-        {episodes.map((episode) => {
-          const episodeId = getAfterSlashId(episode)
-          return (
-            <Link
-              key={episodeId}
-              data-testid='num-link'
-              className='num-link'
-              to={`/episodes/${episodeId}`}
-            >
-              {episodeId}
-            </Link>
-          )
-        })}
-      </Wrapper>
-    )
-  }
-  // Single Episode and Single locations pages have arrays that map to a character, a single
-  // conditional will be used for both with the prop of residents
-  if (residents) {
-    return (
-      <Wrapper className='numbers-div' data-testid='numbers-div'>
-        {residents.map((resident) => {
-          const residentId = getAfterSlashId(resident)
-          return (
-            <Link
-              key={residentId}
-              className='num-link'
-              data-testid='num-link'
-              to={`/characters/${residentId}`}
-            >
-              {residentId}
-            </Link>
-          )
-        })}
-      </Wrapper>
-    )
-  }
+const NumberLinks = ({ urlsArray, relationshipURL }) => {
+  let idsArray = urlsArray.map((url) => getAfterSlashId(url))
+  let queryUrl = `${relationshipURL}${idsArray}`
+
+  const { data, loading } = useFetch(queryUrl, 'all')
+  console.log(data)
+
+  if (loading) return <pre>...Loading</pre>
+
+  return (
+    <Wrapper className='numbers-div'>
+      {data.map((element) => {
+        const { name, id } = element
+        return (
+          <Link
+            key={id}
+            data-testid='num-link'
+            className='num-link'
+            to={`/episodes/${id}`}
+          >
+            {name}
+          </Link>
+        )
+      })}
+    </Wrapper>
+  )
 }
 
 export default NumberLinks
