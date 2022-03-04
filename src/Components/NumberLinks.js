@@ -8,6 +8,11 @@ const NumberLinks = ({ urlsArray, relationshipURL }) => {
   const [relationshipData, setRelationshipData] = useState([])
   const [loading, setLoading] = useState(false)
 
+  let linkRoute = '/episodes/'
+  if (relationshipURL.endsWith('character/')) {
+    linkRoute = '/characters/'
+  }
+
   useEffect(() => {
     const fetchRelationshipNames = async () => {
       let idsArray = urlsArray.map((url) => getAfterSlashId(url))
@@ -43,7 +48,7 @@ const NumberLinks = ({ urlsArray, relationshipURL }) => {
             key={id}
             data-testid='num-link'
             className='num-link'
-            to={`/episodes/${id}`}
+            to={`${linkRoute}${id}`}
           >
             {name}
           </Link>
