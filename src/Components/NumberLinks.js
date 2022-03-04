@@ -1,22 +1,42 @@
-import React from 'react'
-
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { getAfterSlashId } from '../utils/getAfterSlashId'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { useFetch } from '../hooks/useFetch'
 
 const NumberLinks = ({ urlsArray, relationshipURL }) => {
-  let idsArray = urlsArray.map((url) => getAfterSlashId(url))
-  let queryUrl = `${relationshipURL}${idsArray}`
+  const [relationshipData, setRelationshipData] = useState([])
+  const [loading, setLoading] = useState(false)
 
-  const { data, loading } = useFetch(queryUrl, 'all')
-  console.log(data)
+  useEffect(() => {
+    const fetchRelationshipNames = async () => {
+      let idsArray = urlsArray.map((url) => getAfterSlashId(url))
+      let queryUrl = `${relationshipURL}${idsArray}`
+      setLoading(true)
+      try {
+        const { data } = await axios.get(queryUrl)
+        if (data.length > 1) {
+          setRelationshipData([...data])
+          setLoading(false)
+        } else {
+          setRelationshipData([data])
+          setLoading(false)
+        }
+      } catch (error) {
+        console.log(error)
+        setLoading(false)
+      }
+    }
+    fetchRelationshipNames()
+  }, [relationshipURL, urlsArray])
 
   if (loading) return <pre>...Loading</pre>
 
+  if (relationshipData.length < 1) return <h4>No Matches</h4>
+
   return (
     <Wrapper className='numbers-div'>
-      {data.map((element) => {
+      {relationshipData.map((element) => {
         const { name, id } = element
         return (
           <Link

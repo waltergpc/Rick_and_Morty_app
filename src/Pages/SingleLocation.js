@@ -12,9 +12,10 @@ const SingleLocation = () => {
   let residentsRelationshipURL = 'https://rickandmortyapi.com/api/character/'
 
   const { data, loading, error } = useSingleFetch(url)
+  console.log(data)
 
   if (loading) return <Loading />
-  if (!data) return <Loading />
+
   return (
     <Wrapper>
       {error && <div>{error}</div>}

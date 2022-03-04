@@ -16,19 +16,21 @@ export const useFetch = (url, page) => {
       if (page === 'all') {
         queryUrl = `${queryUrl}`
       }
-      console.log(queryUrl)
+
       try {
-        const { data } = await axios.get(queryUrl)
+        const { data: axiosData } = await axios.get(queryUrl)
+
         if (page === 'all') {
-          setData(data)
+          setData([...axiosData])
           setLoading(false)
         }
         if (page !== 'all') {
-          setData(data.results)
+          setData(axiosData.results)
           setLoading(false)
-          setInfo(data.info)
+          setInfo(axiosData.info)
         }
       } catch (error) {
+        console.log(error)
         if (error.response.status === 404) {
           setData([])
           setInfo({})
