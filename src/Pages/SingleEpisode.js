@@ -64,6 +64,7 @@ const Wrapper = styled.section`
   .residents-div {
     padding: 0.5rem;
     text-align: center;
+    height: 90%;
     overflow: scroll;
   }
 
