@@ -70,11 +70,13 @@ const Wrapper = styled.div`
     margin: 0.3rem;
     color: beige;
     border: 2px black solid;
+    align-content: center;
+    align-items: center;
     border-radius: 0.5rem;
     padding: 0.3rem 0.5rem;
     background-color: rgba(47, 47, 46, 0.9);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    flex-basis: 15%;
+    flex-basis: 30%;
     text-align: center;
   }
 `
