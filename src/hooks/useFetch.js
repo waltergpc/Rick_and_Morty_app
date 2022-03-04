@@ -10,25 +10,12 @@ export const useFetch = (url, page) => {
   const getData = useCallback(
     async (queryUrl) => {
       setLoading(true)
-      if (page !== 'all') {
-        queryUrl = `${queryUrl}&page=${page}`
-      }
-      if (page === 'all') {
-        queryUrl = `${queryUrl}`
-      }
-
+      queryUrl = `${queryUrl}&page=${page}`
       try {
         const { data: axiosData } = await axios.get(queryUrl)
-
-        if (page === 'all') {
-          setData([...axiosData])
-          setLoading(false)
-        }
-        if (page !== 'all') {
-          setData(axiosData.results)
-          setLoading(false)
-          setInfo(axiosData.info)
-        }
+        setData(axiosData.results)
+        setLoading(false)
+        setInfo(axiosData.info)
       } catch (error) {
         console.log(error)
         if (error.response.status === 404) {
