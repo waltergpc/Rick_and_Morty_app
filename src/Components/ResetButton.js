@@ -1,9 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const ResetButton = ({ resetUrl, originalUrl }) => {
+const ResetButton = ({ resetUrl, originalUrl, resetSearchValues }) => {
+  const handleClick = (e) => {
+    resetUrl(originalUrl)
+    resetSearchValues(null)
+  }
+
   return (
-    <ButtonWrapper onClick={() => resetUrl(originalUrl)} type='button'>
+    <ButtonWrapper onClick={handleClick} type='button'>
       Reset to All
     </ButtonWrapper>
   )

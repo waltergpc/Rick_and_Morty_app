@@ -9,6 +9,7 @@ import styled from 'styled-components'
 import background1 from '../Images/background1.png'
 import Loading from '../Components/Loading'
 import ResetButton from '../Components/ResetButton'
+import SearchKeywords from '../Components/SearchKeywords'
 
 const Characters = () => {
   const [queryUrl, setQueryUrl] = useState(
@@ -18,6 +19,7 @@ const Characters = () => {
   const [gridView, setGridView] = useState(true)
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
+  const [searchValues, setSearchValues] = useState(null)
 
   const { loading, error, data, info } = useFetch(queryUrl, page)
 
@@ -31,13 +33,17 @@ const Characters = () => {
         setQueryUrl={setQueryUrl}
         queryUrl={queryUrl}
         setPage={setPage}
+        searchValues={searchValues}
+        setSearchValues={setSearchValues}
       />
+      {searchValues && <SearchKeywords searchValues={searchValues} />}
       <div className='info-div'>
         <GridviewButtons setGridView={setGridView} gridView={gridView} />
         <div className='count-div'>Total Count: {info.count}</div>
         <ResetButton
           resetUrl={setQueryUrl}
           originalUrl='https://rickandmortyapi.com/api/character/?'
+          resetSearchValues={setSearchValues}
         />
       </div>
       {gridView ? (

@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaSearch } from 'react-icons/fa'
 
-const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
+const SearchCharacters = ({
+  setQueryUrl,
+  setPage,
+  searchValues,
+  setSearchValues,
+}) => {
   const [queryValues, setQueryValues] = useState({
     name: '',
     type: '',
@@ -32,6 +37,13 @@ const SearchCharacters = ({ queryUrl, setQueryUrl, setPage }) => {
     if (queryValues.type) {
       tempUrl = `${tempUrl}&type=${queryValues.type}`
     }
+    setSearchValues({
+      name: queryValues.name,
+      type: queryValues.type,
+      species: queryValues.species,
+      status: queryValues.status !== 'all' ? queryValues.status : '',
+      gender: queryValues.gender !== 'all' ? queryValues.gender : '',
+    })
     setQueryUrl(tempUrl)
     setPage(1)
   }
