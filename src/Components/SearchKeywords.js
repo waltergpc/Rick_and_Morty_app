@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 
 const SearchKeywords = React.memo(({ searchValues }) => {
   let savedScreenParams = []
@@ -10,13 +11,31 @@ const SearchKeywords = React.memo(({ searchValues }) => {
   }
 
   return (
-    <div>
-      <h6>Searching by:</h6>
+    <Wrapper>
+      <span>Searching by</span>
       {savedScreenParams.map((param) => (
-        <p key={param}>{param}</p>
+        <span className='search-param' key={param}>
+          {param}
+        </span>
       ))}
-    </div>
+    </Wrapper>
   )
 })
 
 export default SearchKeywords
+
+const Wrapper = styled.div`
+  background-color: rgba(47, 47, 46, 0.7);
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 0.7rem;
+  color: beige;
+  align-items: center;
+  padding: 0.5rem;
+  font-weight: bold;
+  flex-wrap: wrap;
+  .search-param {
+    color: beige;
+    margin: 0.2rem;
+  }
+`

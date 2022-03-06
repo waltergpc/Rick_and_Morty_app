@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaSearch } from 'react-icons/fa'
 
-const SearchEpisodes = ({ setQueryUrl, setPage }) => {
+const SearchEpisodes = ({ setQueryUrl, setPage, setSearchValues }) => {
   const [queryValues, setQueryValues] = useState({
     name: '',
     episode: '',
@@ -19,6 +19,10 @@ const SearchEpisodes = ({ setQueryUrl, setPage }) => {
     if (queryValues.episode) {
       tempUrl = `${tempUrl}&episode=${queryValues.episode}`
     }
+    setSearchValues({
+      name: queryValues.name,
+      episode: queryValues.episode,
+    })
     setQueryUrl(tempUrl)
     setPage(1)
   }
