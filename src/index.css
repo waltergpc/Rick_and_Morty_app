@@ -221,3 +221,20 @@ p {
   margin: 1rem;
   background-color: rgba(0, 0, 0, 0.2);
 }
+
+.main-background {
+  object-fit: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.bck-1 {
+  background-image: url('../src/Images/background1.png');
+}
+
+.bck-2 {
+  background-image: url('../src/Images/background2.png');
+}
+.bck-5 {
+  background-image: url('../src/Images/background5.png');
+}

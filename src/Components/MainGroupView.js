@@ -7,7 +7,6 @@ import SearchCharacters from '../Components/SearchCharacters'
 import SearchLocations from '../Components/SearchLocations'
 import { useFetch } from '../hooks/useFetch'
 import styled from 'styled-components'
-import background1 from '../Images/background1.png'
 import Loading from '../Components/Loading'
 import ResetButton from '../Components/ResetButton'
 import SearchKeywords from '../Components/SearchKeywords'
@@ -15,7 +14,7 @@ import { useGlobalContext } from '../Context/GlobalContext'
 import { charactersBaseUrl, locationsBaseUrl } from '../utils/helperVariables'
 import SearchEpisodes from './SearchEpisodes'
 
-const MainGroupView = ({ baseUrl }) => {
+const MainGroupView = ({ baseUrl, backgroundImg }) => {
   const { gridView, mountInitialSetup, searchValues } = useGlobalContext()
 
   useEffect(() => {
@@ -34,7 +33,7 @@ const MainGroupView = ({ baseUrl }) => {
   }
 
   return (
-    <Wrapper>
+    <Wrapper className={`main-background ${backgroundImg}`}>
       {error && <h4>{error}</h4>}
       {baseUrl === charactersBaseUrl ? (
         <SearchCharacters />
@@ -45,9 +44,9 @@ const MainGroupView = ({ baseUrl }) => {
       )}
       {searchValues && <SearchKeywords searchValues={searchValues} />}
       <div className='info-div'>
-        <GridviewButtons gridView={gridView} />
+        <GridviewButtons />
         <div className='count-div'>Total Count: {info.count}</div>
-        <ResetButton originalUrl='https://rickandmortyapi.com/api/character/?' />
+        <ResetButton originalUrl={baseUrl} />
       </div>
       {gridView ? (
         <Gridview data={data} provider={getProvider(baseUrl)} />
@@ -64,10 +63,6 @@ export default MainGroupView
 const Wrapper = styled.section`
   display: grid;
   align-items: center;
-  background-image: url(${background1});
-  object-fit: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
 
   .info-div {
     margin-top: 0.5rem;
