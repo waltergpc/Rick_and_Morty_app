@@ -1,7 +1,10 @@
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
+import { useGlobalContext } from '../Context/GlobalContext'
 
-export const useFetch = (url, page) => {
+export const useFetch = () => {
+  const { queryUrl, page } = useGlobalContext()
+
   const [error, setError] = useState(null)
   const [data, setData] = useState([])
   const [info, setInfo] = useState({})
@@ -31,8 +34,8 @@ export const useFetch = (url, page) => {
   )
 
   useEffect(() => {
-    getData(url)
-  }, [url, page, getData])
+    getData(queryUrl)
+  }, [queryUrl, page, getData])
 
   return { loading, error, data, info }
 }

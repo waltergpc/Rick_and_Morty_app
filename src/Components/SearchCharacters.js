@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaSearch } from 'react-icons/fa'
+import { useGlobalContext } from '../Context/GlobalContext'
 
-const SearchCharacters = ({
-  setQueryUrl,
-  setPage,
-  searchValues,
-  setSearchValues,
-}) => {
+const SearchCharacters = () => {
+  const { setSearchUrl, setSearchValues } = useGlobalContext()
   const [queryValues, setQueryValues] = useState({
     name: '',
     type: '',
@@ -44,8 +41,7 @@ const SearchCharacters = ({
       status: queryValues.status !== 'all' ? queryValues.status : '',
       gender: queryValues.gender !== 'all' ? queryValues.gender : '',
     })
-    setQueryUrl(tempUrl)
-    setPage(1)
+    setSearchUrl(tempUrl)
   }
   return (
     <FormWrapper onSubmit={handleSubmit}>

@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { FaSearch } from 'react-icons/fa'
+import { useGlobalContext } from '../Context/GlobalContext'
 
-const SearchLocations = ({ setQueryUrl, setPage, setSearchValues }) => {
+const SearchLocations = () => {
+  const { setQueryUrl, setPage, setSearchValues } = useGlobalContext()
   const [queryValues, setQueryValues] = useState({
     name: '',
     type: '',

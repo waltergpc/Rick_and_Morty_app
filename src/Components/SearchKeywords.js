@@ -5,7 +5,7 @@ const SearchKeywords = React.memo(({ searchValues }) => {
   let savedScreenParams = []
   console.log(searchValues)
   for (const elem in searchValues) {
-    if (searchValues[elem].length > 1 && searchValues[elem] !== 'all') {
+    if (searchValues[elem].length >= 1 && searchValues[elem] !== 'all') {
       savedScreenParams.push(`${elem}: ${searchValues[elem]}`)
     }
   }

@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useGlobalContext } from '../Context/GlobalContext'
 
-const ResetButton = ({ resetUrl, originalUrl, resetSearchValues }) => {
+const ResetButton = ({ originalUrl }) => {
+  const { setQueryUrl, setSearchValues } = useGlobalContext()
+
   const handleClick = (e) => {
-    resetUrl(originalUrl)
-    resetSearchValues(null)
+    setQueryUrl(originalUrl)
+    setSearchValues(null)
   }
 
   return (

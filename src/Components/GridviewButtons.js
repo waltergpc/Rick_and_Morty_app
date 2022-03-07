@@ -1,8 +1,11 @@
 import React from 'react'
 import { BsFillGridFill, BsListUl } from 'react-icons/bs'
 import styled from 'styled-components'
+import { useGlobalContext } from '../Context/GlobalContext'
 
-const GridviewButtons = ({ setGridView, gridView }) => {
+const GridviewButtons = () => {
+  const { gridView, setGridView } = useGlobalContext()
+
   return (
     <Wrapper>
       <button
