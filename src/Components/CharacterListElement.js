@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const CharacterList = ({ character }) => {
+const CharacterListElement = ({ character }) => {
   const { id, name, image, species, status } = character
   return (
     <ArticleWrapper data-testid='character-list'>
@@ -18,7 +18,7 @@ const CharacterList = ({ character }) => {
   )
 }
 
-export default CharacterList
+export default CharacterListElement
 
 const ArticleWrapper = styled.article`
   display: grid;

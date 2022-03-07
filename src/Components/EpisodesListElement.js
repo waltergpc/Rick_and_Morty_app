@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const EpisodesList = ({ episode }) => {
+const EpisodesListElement = ({ episode }) => {
   const { id, name, episode: episodeCode, air_date } = episode
   return (
     <ArticleWrapper data-testid='episode-list'>
@@ -15,7 +15,7 @@ const EpisodesList = ({ episode }) => {
   )
 }
 
-export default EpisodesList
+export default EpisodesListElement
 
 const ArticleWrapper = styled.article`
   display: grid;

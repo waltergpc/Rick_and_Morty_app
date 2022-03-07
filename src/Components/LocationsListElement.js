@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const LocationsList = ({ location }) => {
+const LocationsListElement = ({ location }) => {
   const { id, name, type, dimension } = location
   return (
     <ArticleWrapper data-testid='location-list'>
@@ -15,7 +15,7 @@ const LocationsList = ({ location }) => {
   )
 }
 
-export default LocationsList
+export default LocationsListElement
 
 const ArticleWrapper = styled.article`
   display: grid;

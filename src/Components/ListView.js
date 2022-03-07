@@ -1,8 +1,8 @@
 import React from 'react'
-import CharacterList from './CharacterList'
+import CharacterListElement from './CharacterListElement'
 import styled from 'styled-components'
-import LocationsList from './LocationsList'
-import EpisodesList from './EpisodesList'
+import LocationsListElement from './LocationsListElement'
+import EpisodesListElement from './EpisodesListElement'
 
 const ListView = React.memo(({ provider, data }) => {
   if (provider === 'characters') {
@@ -18,7 +18,7 @@ const ListView = React.memo(({ provider, data }) => {
         </div>
         <div className='list-body'>
           {data.map((character) => (
-            <CharacterList key={character.id} character={character} />
+            <CharacterListElement key={character.id} character={character} />
           ))}
         </div>
       </Wrapper>
@@ -36,7 +36,7 @@ const ListView = React.memo(({ provider, data }) => {
         </div>
         <div className='list-body'>
           {data.map((location) => (
-            <LocationsList key={location.id} location={location} />
+            <LocationsListElement key={location.id} location={location} />
           ))}
         </div>
       </Wrapper>
@@ -55,7 +55,7 @@ const ListView = React.memo(({ provider, data }) => {
         </div>
         <div className='list-body'>
           {data.map((episode) => (
-            <EpisodesList key={episode.id} episode={episode} />
+            <EpisodesListElement key={episode.id} episode={episode} />
           ))}
         </div>
       </Wrapper>
