@@ -22,7 +22,7 @@ export const GlobalProvider = ({ children }) => {
 
   const mountInitialSetup = (url) => {
     setQueryUrl(url)
-    setPage(1)
+    setPage(initialPageNumber)
     setGridView(true)
     setMinPageNumberLimit(minPagesInBar)
     setMaxPageNumberLimit(maxPageNumberLimit)
