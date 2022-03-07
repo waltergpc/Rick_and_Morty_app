@@ -1,4 +1,9 @@
 import React, { useContext, useState } from 'react'
+import {
+  maxPagesInBar,
+  minPagesInBar,
+  initialPageNumber,
+} from '../utils/helperVariables'
 
 const GlobalContext = React.createContext()
 
@@ -11,22 +16,22 @@ export const GlobalProvider = ({ children }) => {
   )
   const [page, setPage] = useState(1)
   const [gridView, setGridView] = useState(true)
-  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5)
-  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0)
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(maxPagesInBar)
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(minPagesInBar)
   const [searchValues, setSearchValues] = useState(null)
 
   const mountInitialSetup = (url) => {
     setQueryUrl(url)
     setPage(1)
     setGridView(true)
-    setMinPageNumberLimit(0)
-    setMaxPageNumberLimit(5)
+    setMinPageNumberLimit(minPagesInBar)
+    setMaxPageNumberLimit(maxPageNumberLimit)
     setSearchValues(null)
   }
 
   const setSearchUrl = (url) => {
     setQueryUrl(url)
-    setPage(1)
+    setPage(initialPageNumber)
   }
 
   return (
