@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import useSingleFetch from '../hooks/useSingleFetch'
 import { Link } from 'react-router-dom'
 import { getAfterSlashId } from '../utils/getAfterSlashId'
-import NumberLinks from '../Components/NumberLinks'
+import NameLinks from '../Components/NameLinks'
 import background3 from '../Images/background3.png'
 import Loading from '../Components/Loading'
 
@@ -53,7 +53,7 @@ const SingleCharacter = () => {
       <div className='episodes-div'>
         <h5>Episodes of Appearance</h5>
         {data.episode && (
-          <NumberLinks
+          <NameLinks
             urlsArray={data.episode}
             relationshipURL={episodesRelationshipURL}
           />

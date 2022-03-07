@@ -5,40 +5,21 @@ import styled from 'styled-components'
 import EpisodesCard from './EpisodesCard'
 
 const Gridview = React.memo(({ data, provider }) => {
-  if (provider === 'characters') {
-    if (data.length < 1)
-      return <div className='not-found'>No Results matched</div>
-    return (
-      <Wrapper data-testid='grid-view'>
-        {data.map((character) => (
-          <CharacterCard key={character.id} character={character} />
-        ))}
-      </Wrapper>
-    )
-  }
-  if (provider === 'locations') {
-    if (data.length < 1)
-      return <div className='not-found'>No Results matched</div>
-    return (
-      <Wrapper data-testid='grid-view'>
-        {data.map((location) => (
-          <LocationsCard location={location} key={location.id} />
-        ))}
-      </Wrapper>
-    )
-  }
-
-  if (provider === 'episodes') {
-    if (data.length < 1)
-      return <div className='not-found'>No Results matched</div>
-    return (
-      <Wrapper data-testid='grid-view'>
-        {data.map((episode) => (
-          <EpisodesCard episode={episode} key={episode.id} />
-        ))}
-      </Wrapper>
-    )
-  }
+  if (data.length < 1)
+    return <div className='not-found'>No Results matched</div>
+  return (
+    <Wrapper data-testid='grid-view'>
+      {data.map((element) => {
+        if (provider === 'characters') {
+          return <CharacterCard key={element.id} character={element} />
+        }
+        if (provider === 'locations') {
+          return <LocationsCard key={element.id} location={element} />
+        }
+        return <EpisodesCard key={element.id} episode={element} />
+      })}
+    </Wrapper>
+  )
 })
 
 export default Gridview

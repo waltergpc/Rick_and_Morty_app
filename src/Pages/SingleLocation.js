@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import useSingleFetch from '../hooks/useSingleFetch'
-import NumberLinks from '../Components/NumberLinks'
+import NameLinks from '../Components/NameLinks'
 import background4 from '../Images/background4.png'
 import Loading from '../Components/Loading'
 
@@ -28,7 +28,7 @@ const SingleLocation = () => {
         <h5 className='residents-title'>Residents</h5>
         <div className='residents-code-div'>
           {data.residents && (
-            <NumberLinks
+            <NameLinks
               urlsArray={data.residents}
               relationshipURL={residentsRelationshipURL}
             />

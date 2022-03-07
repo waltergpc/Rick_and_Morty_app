@@ -4,7 +4,7 @@ import { getAfterSlashId } from '../utils/getAfterSlashId'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const NumberLinks = ({ urlsArray, relationshipURL }) => {
+const NameLinks = ({ urlsArray, relationshipURL }) => {
   const [relationshipData, setRelationshipData] = useState([])
   const [loading, setLoading] = useState(false)
 
@@ -58,7 +58,7 @@ const NumberLinks = ({ urlsArray, relationshipURL }) => {
   )
 }
 
-export default NumberLinks
+export default NameLinks
 
 const Wrapper = styled.div`
   display: flex;

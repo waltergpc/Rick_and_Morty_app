@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import useSingleFetch from '../hooks/useSingleFetch'
-import NumberLinks from '../Components/NumberLinks'
+import NameLinks from '../Components/NameLinks'
 import background6 from '../Images/background6.png'
 import Loading from '../Components/Loading'
 
@@ -27,7 +27,7 @@ const SingleEpisode = () => {
         <h5 className='residents-title'>Characters</h5>
         <div className='numbers-div'>
           {data.characters && (
-            <NumberLinks
+            <NameLinks
               urlsArray={data.characters}
               relationshipURL={charactersRelationshipURL}
             />
